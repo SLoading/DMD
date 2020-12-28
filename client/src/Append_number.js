@@ -17,10 +17,15 @@ function Append_number() {
 
     const other = ['Кондиционер','Холодильник','Мини бар','Сейф','Wi-fi','Парковка','Бассейн','Уборка номеров','Трансфер'];
     const closeModal = () =>{
+        setPrice('');
+        setCountBed('');
+        setSpace('');
+        setValue('Все включено')
+        setChecked([])
         dispatch({type:'CLOSE_MODAL'})
     }
 
-    const [checked, setChecked] = React.useState([1]);
+    const [checked, setChecked] = React.useState([]);
     const [value, setValue] = React.useState('Все включено');
     const [countBed, setCountBed] = React.useState('');
     const [space,setSpace] = React.useState('');
@@ -35,20 +40,26 @@ function Append_number() {
             "food":value,
             "other":checked
         }).then(res=>{
-            console.log(res)
+            setPrice('');
+            setCountBed('');
+            setSpace('');
+            setValue('Все включено')
+            setChecked([])
             dispatch({type:'CLOSE_MODAL'})
+            dispatch({type:'UPDATE',update:!addNumber.update.update});
         }).catch(err=>{
+            setPrice('');
+            setCountBed('');
+            setSpace('');
+            setValue('Все включено')
+            setChecked([])
             console.log(err);
         })
-
-
-        console.log(value)
-
     }
+
 
     const handleChange = (event) => {
         setValue(event.target.value);
-        console.log(value)
     };
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
@@ -60,7 +71,6 @@ function Append_number() {
             newChecked.splice(currentIndex, 1);
         }
         setChecked(newChecked);
-        console.log(newChecked)
     };
     return (
         <>
@@ -74,9 +84,9 @@ function Append_number() {
                 <div>
                     <div className="main_info">
                         <div className="input_appNumb">
-                                <TextField id="standard-basic" label="Спальных мест" value={countBed}  onChange={e=>setCountBed(e.target.value)} />
-                                <TextField id="standard-basic" label="Площадь"value={space}  onChange={e=>setSpace(e.target.value)} />
-                                <TextField id="standard-basic" label="Цена"value={price}  onChange={e=>setPrice(e.target.value)} />
+                                <TextField  label="Спальных мест" value={countBed}  onChange={e=>setCountBed(e.target.value)} />
+                                <TextField label="Площадь"value={space}  onChange={e=>setSpace(e.target.value)} />
+                                <TextField  label="Цена"value={price}  onChange={e=>setPrice(e.target.value)} />
                         </div>
                         <div>
                             <div className="food_radiobutton">
