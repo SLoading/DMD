@@ -8,25 +8,13 @@ const app = express();
 const port = 5000;
 
 dbconnect.mongoose();
-//
-app.use(express.json({ extended:true }))
-const hotel = require('./routes/hotel.routes');
-app.use('/',hotel);
 
-// const Num = mongoose.model('Numbers',Numbers)
-// app.get('/', (req,res) =>{
-//     Numbers.create({
-//         number: 1,
-//         price: 1000,
-//         count_bed:1,
-//         space:12,
-//         food:"Без питания",
-//         other:["светильник","Холодильник"],
-//     })
-//         .then((number) =>res.send(number))
-//             .catch((err)=>res.send(err));
-//
-// });
+app.use(express.json({ extended:true }))
+
+// app.use('/',require('./routes/hotel.addNumber'));
+
+app.use('/',require('./routes/hotel.numbers'));
+
 
 
 const server = createServer(app);
