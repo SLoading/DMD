@@ -44,14 +44,14 @@ function Room() {
                                         <Typography variant="body2" gutterBottom>
                                             {value.food}, {value.space} кв.м
                                         </Typography>
-                                        <Typography variant="body2" color="textSecondary">
-                                            {value.other}
+                                        <Typography spa variant="body2" color="textSecondary">
+                                            {value.other+ " "}
                                         </Typography>
                                     </Grid>
                                     <Grid item>
                                         <Typography component={'span'} variant={'body2'} style={{cursor: 'pointer'}}>
-
                                             <Button  color="secondary" onClick={()=>delete_number(value._id)}>Удалить</Button>
+                                            <Button  color="default" onClick={()=>dispatch({type:'CHANGE',isOpen:true,id:value._id,count_bed: value.count_bed,price:value.price,space: value.space,food:value.food,other:value.other})}>Редактировать</Button>
                                         </Typography>
                                     </Grid>
                                 </Grid>

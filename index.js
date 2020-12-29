@@ -11,9 +11,7 @@ dbconnect.mongoose();
 
 app.use(express.json({ extended:true }))
 
-app.use('/',require('./routes/hotel.addNumber'));
 app.use('/',require('./routes/hotel.numbers'));
-app.use('/',require('./routes/hotel.deleteNumber'));
 
 
 const server = createServer(app);

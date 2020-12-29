@@ -33,7 +33,6 @@ function Append_number() {
 
     const App_num = () =>{
         axios.post("/api/append_number",{
-            "number" : 0,
             "price" : price,
             "count_bed":countBed,
             "space":space,
