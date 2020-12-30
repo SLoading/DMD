@@ -12,24 +12,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios'
 
 function Change_number() {
+    console.log("CHANGE")
     const change = useSelector( (state) => state)
     const dispatch = useDispatch();
-    console.log("CHANGE " + change.change.price )
     const other = ['Кондиционер','Холодильник','Мини бар','Сейф','Wi-fi','Парковка','Бассейн','Уборка номеров','Трансфер'];
     const closeModal = () =>{
         setPrice('');
         setCountBed('');
         setSpace('');
-        setValue('Все включено')
+        setFood('Все включено')
         setChecked([])
+        dispatch({type:'UPDATE',update:!change.update.update});
         dispatch({type:'CLOSE_CHANGE'})
     }
-
-    const [checked, setChecked] = React.useState(change.change.other);
-    const [value, setValue] = React.useState(change.change.food);
-    const [countBed, setCountBed] = React.useState(change.change.count_bed);
-    const [space,setSpace] = React.useState(change.change.space);
-    const [price, setPrice] = React.useState(change.change.price);
+    const [checked, setChecked] = React.useState([]);
+    const [food, setFood] = React.useState('Все включено');
+    const [countBed, setCountBed] = useState('');
+    const [space,setSpace] = useState('');
+    const [price, setPrice] = useState('');
 
     const change_num = () =>{
         axios.put("/api/update_number",{
@@ -37,13 +37,13 @@ function Change_number() {
             "price" : price,
             "count_bed":countBed,
             "space":space,
-            "food":value,
+            "food":food,
             "other":checked
         }).then(res=>{
             setPrice('');
             setCountBed('');
             setSpace('');
-            setValue('Все включено')
+            setFood('Все включено')
             setChecked([])
             dispatch({type:'CLOSE_CHANGE'})
             dispatch({type:'UPDATE',update:!change.update.update});
@@ -51,15 +51,21 @@ function Change_number() {
             setPrice('');
             setCountBed('');
             setSpace('');
-            setValue('Все включено')
+            setFood('Все включено')
             setChecked([])
             console.log(err);
         })
     }
 
-
+    useEffect(()=>{
+        // setChecked(change.change.other)
+        // setFood(change.change.food)
+        setCountBed(change.change.count_bed)
+        setSpace(change.change.space)
+        setPrice(change.change.price)
+    },[change.change.isOpen])
     const handleChange = (event) => {
-        setValue(event.target.value);
+        setFood(event.target.value);
     };
     const handleToggle = (value) => () => {
         const currentIndex = checked.indexOf(value);
@@ -92,7 +98,7 @@ function Change_number() {
                                 <div className="food_radiobutton">
                                     <FormControl component="fieldset">
                                         <FormLabel component="legend">Питание</FormLabel>
-                                        <RadioGroup  value={value} onChange={handleChange}>
+                                        <RadioGroup  value={food} onChange={handleChange}>
                                             <FormControlLabel value="Все включено" control={<Radio />} label="Все включено" />
                                             <FormControlLabel value="Завтрак, ужин" control={<Radio />} label="Завтрак, ужин" />
                                             <FormControlLabel value="Без питания" control={<Radio />} label="Без питания" />

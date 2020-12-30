@@ -1,6 +1,5 @@
 const express = require('express');
 const Numbers = require('../models/Numbers');
-const mongoose = ('mongoose');
 const router = express.Router();
 
 router.get('/api/numbers', async (req,res) =>{
@@ -21,7 +20,6 @@ router.post('/api/delete_numbers', async (req,res) =>{
 
     }catch (e){
         res.status(500).json({message:'error'})
-        console.log("erre")
 
     }
 })
@@ -43,8 +41,7 @@ router.post('/api/append_number', async (req,res) =>{
 
 router.put('/api/update_number', async (req,res) =>{
     try{
-        console.log( req.body.id)
-        await Numbers.findByIdAndUpdate({"_id":req.body.id},{
+        await Numbers.findOneAndUpdate({"_id":req.body.id},{
             price: req.body.price,
             count_bed:req.body.count_bed,
             space:req.body.space,
@@ -54,8 +51,6 @@ router.put('/api/update_number', async (req,res) =>{
 
     }catch (e){
         res.status(500).json({message:'error'})
-        console.log("erre")
-
     }
 })
 

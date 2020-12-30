@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d789b292-3612-4734-85cf-0ee00801ee2a" name="Default Changelist" comment="Post request to add a number to the database">
-      <change afterPath="$PROJECT_DIR$/client/src/Change_number.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/reducer/change.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Append_number.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Append_number.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/room.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Numbers.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Numbers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/hotel.addNumber.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/hotel.deleteNumber.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Change_number.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Change_number.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/hotel.numbers.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/hotel.numbers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +58,9 @@
       <workItem from="1609134526357" duration="18580000" />
       <workItem from="1609172531640" duration="5636000" />
       <workItem from="1609240154352" duration="3818000" />
-      <workItem from="1609253901932" duration="3053000" />
+      <workItem from="1609253901932" duration="5638000" />
+      <workItem from="1609270313392" duration="4093000" />
+      <workItem from="1609319692869" duration="253000" />
     </task>
     <task id="LOCAL-00001" summary="Post request to add a number to the database">
       <created>1609005487778</created>
@@ -90,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609180346610</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Changing room information">
+      <created>1609257193428</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609257193428</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +112,7 @@
     <MESSAGE value="Post request to add a number to the database" />
     <MESSAGE value="A module for adding and displaying numbers has been created" />
     <MESSAGE value="Deleting numbers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleting numbers" />
+    <MESSAGE value="Changing room information" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing room information" />
   </component>
 </project>
